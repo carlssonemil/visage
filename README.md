@@ -1,26 +1,7 @@
 # visage
 
-## Project setup
-```
-npm install
-```
+Repository for WoW guild &lt;Visage&gt;'s website.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## License
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
+Code released under the [MIT License](https://github.com/carlssonemil/project-boilerplate/blob/master/LICENSE).
