@@ -1,9 +1,16 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <header>
+      <div id="nav">
+        <div>
+          <router-link to="/">Home</router-link>
+          <router-link to="/about">About</router-link>
+        </div>
+        <div>
+          <a href="https://www.wowprogress.com/guild/eu/tarren-mill/Visage">WoWProgress</a>
+        </div>
+      </div>
+    </header>
     <router-view/>
   </div>
 </template>
