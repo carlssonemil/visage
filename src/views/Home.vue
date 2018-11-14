@@ -3,15 +3,15 @@
     <div id="welcome">
       <h1>&lt;Visage&gt;</h1>
       <span class="server">Tarren Mill EU – Horde</span>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper diam non volutpat sagittis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+      <p>{{ content.description }}</p>
     </div>
 
     <div class="columns">
       <div>
-        <Schedule />
-        <Progress />
+        <Schedule v-if="content.schedule" :schedule="content.schedule" />
+        <Progress v-if="content.progress" :progress="content.progress" />
       </div>
-      <Recruitment />
+      <Recruitment v-if="content.recruitment" :recruitment="content.recruitment" />
     </div>
   </div>
 </template>
@@ -21,12 +21,20 @@ import Progress from '@/components/Progress.vue'
 import Schedule from '@/components/Schedule.vue'
 import Recruitment from '@/components/Recruitment.vue'
 
+import { db } from '../firebaseApp'
+
 export default {
   name: 'home',
   components: {
     Progress,
     Schedule,
     Recruitment
+  },
+  firebase: {
+    content: {
+      source: db.ref("content"),
+      asObject: true
+    }
   }
 }
 </script>
