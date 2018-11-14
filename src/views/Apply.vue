@@ -30,8 +30,8 @@
       <div class="row">
         <div class="column auto">
           <label for="form-bnet">Bnet-tag:</label>
-          <input v-model="application.bnet" id="form-bnet" name="Bnet-tag" type="text" placeholder="Ex: Dragonslayer#1337" v-validate="'required'" :class="{ error: errors.has('Bnet-Tag') }">
-          <span v-show="errors.has('Bnet-Tag')" class="validation-error">Det här fältet är obligatoriskt.</span>
+          <input v-model="application.bnet" id="form-bnet" name="Bnet-tag" type="text" placeholder="Ex: Dragonslayer#1337" v-validate="'required'" :class="{ error: errors.has('Bnet-tag') }">
+          <span v-show="errors.has('Bnet-tag')" class="validation-error">Det här fältet är obligatoriskt.</span>
         </div>
 
         <div class="column">
