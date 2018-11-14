@@ -153,6 +153,7 @@ export default {
   font-size: 18px;
   margin: 0 auto;
   max-width: 600px;
+  padding: 75px 0;
   text-align: left;
 
   h2 {

@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div id="home">
     <div id="welcome">
       <h1>&lt;Visage&gt;</h1>
       <span class="server">Tarren Mill EU – Horde</span>
@@ -36,6 +36,7 @@ export default {
 
 #home {
   display: block;
+  padding: 60px 0;
 }
 
 #welcome {

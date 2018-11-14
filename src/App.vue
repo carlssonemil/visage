@@ -4,14 +4,19 @@
       <div id="nav">
         <div>
           <router-link to="/" class="logo">&lt;Visage&gt;</router-link>
-          <router-link to="/apply">Apply</router-link>
         </div>
         <div>
+          <router-link to="/apply">Apply</router-link>
+          <span class="divider">&bullet;</span>
           <a href="https://www.wowprogress.com/guild/eu/tarren-mill/Visage">WoWProgress</a>
         </div>
       </div>
     </header>
-    <router-view/>
+    <main>
+      <div class="container">
+        <router-view/>
+      </div>
+    </main>
   </div>
 </template>
 
@@ -33,6 +38,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   height: 100vh;
+  overflow: hidden;
   z-index: 1;
 
   &::after {
@@ -55,12 +61,22 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.25;
-  margin: 0 auto ;
-  max-width: $max-width;
-  padding: #{ $header-height + 25px } 0 50px;
+  padding: #{ $header-height } 0 50px;
   text-align: center;
-  width: 95%;
+  width: 100%;
   z-index: 10;
+}
+
+main {
+  height: calc(100vh - #{ $header-height });
+  overflow-y: auto;
+  width: 100%;
+
+  .container {
+    margin: 0 auto;
+    max-width: $max-width;
+    width: 95%;
+  }
 }
 
 header {
@@ -122,6 +138,13 @@ header {
         border-color: $primary-color;
         opacity: 1;
       }
+    }
+
+    span.divider {
+      margin: 0 10px;
+      opacity: 0.2;
+      position: relative;
+      top: 3px;
     }
   }
 }
