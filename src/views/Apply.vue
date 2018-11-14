@@ -12,28 +12,28 @@
 
     <p>Låter allt bra? Låt oss då gå vidare till ansökan:</p>
 
-    <form>
+    <form @submit.prevent="sendApplication()">
       <div class="row">
         <div class="column">
           <label for="form-name">Namn:</label>
-          <input id="form-name" type="text" placeholder="Ex: John Doe">
+          <input v-model="application.name" id="form-name" type="text" placeholder="Ex: John Doe">
         </div>
 
         <div class="column auto">
           <label for="form-age">Ålder:</label>
-          <input id="form-age" type="text" placeholder="Ex: 18">
+          <input v-model="application.age" id="form-age" type="text" placeholder="Ex: 18">
         </div>
       </div>
 
       <div class="row">
         <div class="column auto">
           <label for="form-bnet">Bnet-tag:</label>
-          <input id="form-bnet" type="text" placeholder="Ex: Dragonslayer#1337">
+          <input v-model="application.bnet" id="form-bnet" type="text" placeholder="Ex: Dragonslayer#1337">
         </div>
 
         <div class="column">
           <label for="form-class">Class:</label>
-          <select id="form-class">
+          <select v-model="application.class" id="form-class">
             <option value="Death Knight">Death Knight</option>
             <option value="Demon Hunter">Demon Hunter</option>
             <option value="Druid">Druid</option>
@@ -51,7 +51,7 @@
 
         <div class="column">
           <label for="form-spec">Primär spec:</label>
-          <select id="form-spec">
+          <select v-model="application.spec" id="form-spec">
             <option value="DPS">DPS</option>
             <option value="Healer">Healer</option>
             <option value="Tank">Tank</option>
@@ -60,43 +60,71 @@
       </div>
 
       <label for="form-attendence">Vi raidar 3 dagar i veckan (ons/tors/sön, 20:00 - 23:00) kan du hålla minst en 80-90% attendence?</label>
-      <textarea id="form-attendence"></textarea>
+      <textarea v-model="application.attendence" id="form-attendence"></textarea>
 
       <label for="form-current-guild">Nuvarande och tidigare guild, och varför du lämnat/vill lämna dessa?</label>
-      <textarea id="form-current-guild"></textarea>
+      <textarea v-model="application.currentGuild" id="form-current-guild"></textarea>
 
       <label for="form-previous-experience">Tidigare erfarenhet och nuvarande?</label>
-      <textarea id="form-previous-experience"></textarea>
+      <textarea v-model="application.previousExperience" id="form-previous-experience"></textarea>
 
       <label for="form-previous-guilds">Vilken/vilka guilder har du vart med i tidigare och varför lämnade du?</label>
-      <textarea id="form-previous-guilds"></textarea>
+      <textarea v-model="application.previousGuilds" id="form-previous-guilds"></textarea>
 
       <label for="form-raiding-goals">Vårat mål är high end mythic raiding, vara bland de bättre, samt ha en skön och trevlig miljö där man kan ha roligt samtidigt som vi når våra mål. Vad är målet med raiding för dig?</label>
-      <textarea id="form-raiding-goals"></textarea>
+      <textarea v-model="application.raidingGoals" id="form-raiding-goals"></textarea>
 
       <label for="form-problem-with-bench">Vi är en guild med mer än 20 medlemmar så ibland kommer man få sitta ute, har du något problem med det?</label>
-      <textarea id="form-problem-with-bench"></textarea>
+      <textarea v-model="application.problemWithBench" id="form-problem-with-bench"></textarea>
 
       <label for="form-ui-printscreen">Länk till en printscreen av ditt UI i combat (använd <a href="https://gyazo.com/">Gyazo</a> eller <a href="https://imgur.com/">Imgur</a>):</label>
-      <input id="form-ui-printscreen" type="text" placeholder="Ex: https://i.imgur.com/skSpO.jpg">
+      <input v-model="application.uiPrintscreen" id="form-ui-printscreen" type="text" placeholder="Ex: https://i.imgur.com/skSpO.jpg">
 
       <label for="form-warcraftlogs">Warcraftlogs:</label>
-      <input id="form-warcraftlogs" type="text" placeholder="Ex: htts://www.warcraftlogs.com/character/eu/[server]/[karaktär]/">
+      <input v-model="application.warcraftlogs" id="form-warcraftlogs" type="text" placeholder="Ex: htts://www.warcraftlogs.com/character/eu/[server]/[karaktär]">
 
       <label for="form-armory">Armory:</label>
-      <input id="form-armory" type="text" placeholder="Ex: https://worldofwarcraft.com/en-gb/character/[server]/[karaktär]/">
+      <input v-model="application.armory" id="form-armory" type="text" placeholder="Ex: https://worldofwarcraft.com/en-gb/character/[server]/[karaktär]/">
 
       <label for="form-other-information">Har du något att tillägga?</label>
-      <textarea id="form-other-information"></textarea>
+      <textarea v-model="application.otherInformation" id="form-other-information"></textarea>
 
-      <button type="button">Skicka ansökan</button>
+      <button type="submit">Skicka ansökan</button>
     </form>
   </div>
 </template>
 
 <script>
+import Firebase from 'firebase'
+
+const config = {
+  apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
+  authDomain: process.env.VUE_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.VUE_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.VUE_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.VUE_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.VUE_APP_FIREBASE_MESSAGING_SENDER_ID
+};
+
+const app = Firebase.initializeApp(config);
+const db = app.database();
+
+let applicationsRef = db.ref("applications");
+
 export default {
-  name: 'apply'
+  name: 'apply',
+  data () {
+    return {
+      application: {}
+    }
+  },
+  methods: {
+    sendApplication() {
+      applicationsRef.push(this.application);
+
+      this.application = {};
+    }
+  }
 }
 </script>
 
