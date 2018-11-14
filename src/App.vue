@@ -3,8 +3,8 @@
     <header>
       <div id="nav">
         <div>
-          <router-link to="/" class="logo">&lt;Visage&gt;<span class="server">Tarren Mill - EU</span></router-link>
-          <router-link to="/about">About</router-link>
+          <router-link to="/" class="logo">&lt;Visage&gt;</router-link>
+          <router-link to="/apply">Apply</router-link>
         </div>
         <div>
           <a href="https://www.wowprogress.com/guild/eu/tarren-mill/Visage">WoWProgress</a>
@@ -29,10 +29,13 @@ body {
 #app {
   color: $text-color;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.25;
   margin: #{ $header-height + 25px } auto 0;
   max-width: $max-width;
+  padding-bottom: 50px;
   text-align: center;
   width: 95%;
 }
@@ -60,6 +63,7 @@ header {
     }
 
     a {
+      color: inherit;
       font-weight: 500;
       opacity: 0.5;
       text-decoration: none;
@@ -76,6 +80,8 @@ header {
       &:not(.logo) {
         border-bottom: 2px solid $header-background;
         padding: 0 2px 3px;
+        position: relative;
+        top: 4px;
       }
 
       + a {
@@ -84,15 +90,9 @@ header {
 
       &.logo {
         font-size: 20px;
+        margin-right: 20px;
         opacity: 1;
         text-align: left;
-
-        span.server {
-          display: block;
-          font-size: 12px;
-          margin-top: 4px;
-          opacity: 0.5;
-        }
       }
 
       &:not(.logo).router-link-exact-active {
