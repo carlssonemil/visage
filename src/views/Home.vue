@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+    <h1>Välkommen</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper diam non volutpat sagittis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+
     <div class="columns">
       <div>
         <Schedule />
@@ -30,6 +33,7 @@ export default {
 
 .columns {
   display: flex;
+  margin: 15px 0;
 
   > div {
     display: flex;
@@ -49,6 +53,7 @@ export default {
 .module {
   border: 1px solid lighten($background-color, 5%);
   border-radius: 3px;
+  cursor: default;
   padding: 15px 10px 10px;
   position: relative;
 
