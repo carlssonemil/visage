@@ -17,11 +17,14 @@
 
 <style lang="scss">
 #app {
+  color: #2c3e50;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0 auto;
+  max-width: 1200px;
   text-align: center;
-  color: #2c3e50;
+  width: 95%;
 }
 #nav {
   padding: 30px;
