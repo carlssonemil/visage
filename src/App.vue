@@ -23,7 +23,7 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 75px auto 0;
+  margin: #{ $header-height + 25px } auto 0;
   max-width: $max-width;
   text-align: center;
   width: 95%;
@@ -31,7 +31,7 @@
 
 header {
   background: lightgray;
-  height: 50px;
+  height: $header-height;
   left: 0;
   position: fixed;
   top: 0;
