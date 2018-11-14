@@ -16,13 +16,15 @@
 </template>
 
 <style lang="scss">
+@import '@/styles/variables.scss';
+
 #app {
   color: #2c3e50;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 75px auto 0;
-  max-width: 1200px;
+  max-width: $max-width;
   text-align: center;
   width: 95%;
 }
@@ -41,7 +43,7 @@ header {
     height: 100%;
     justify-content: space-between;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: $max-width;
     width: 95%;
 
     div {
