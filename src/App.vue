@@ -20,10 +20,32 @@
 
 * {
   box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 body {
   background: $background-color;
+  background-image: url("./assets/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  z-index: 1;
+
+  &::after {
+    background: $background-color;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+  }
 }
 
 #app {
@@ -33,11 +55,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.25;
-  margin: #{ $header-height + 25px } auto 0;
+  margin: 0 auto ;
   max-width: $max-width;
-  padding-bottom: 50px;
+  padding: #{ $header-height + 25px } 0 50px;
   text-align: center;
   width: 95%;
+  z-index: 10;
 }
 
 header {
@@ -100,6 +123,33 @@ header {
         opacity: 1;
       }
     }
+  }
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+button, .button {
+  background: $primary-color;
+  border: none;
+  border-radius: 3px;
+  color: $text-color;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  transition: 0.25s ease;
+
+  &:hover {
+    background: darken($primary-color, 10%);
+    text-decoration: none;
   }
 }
 </style>

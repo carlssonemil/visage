@@ -1,7 +1,10 @@
 <template>
   <div class="home">
-    <h1>Välkommen</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper diam non volutpat sagittis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+    <div id="welcome">
+      <h1>&lt;Visage&gt;</h1>
+      <span class="server">Tarren Mill EU – Horde</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper diam non volutpat sagittis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+    </div>
 
     <div class="columns">
       <div>
@@ -31,6 +34,31 @@ export default {
 <style lang="scss">
 @import '@/styles/variables.scss';
 
+#home {
+  display: block;
+}
+
+#welcome {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.95);
+
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 20px 0 0;
+    text-transform: uppercase;
+  }
+
+  span.server {
+    opacity: 0.5;
+  }
+
+  p {
+    font-size: 18px;
+    margin: 30px 0 60px;
+    text-align: left;
+  }
+}
+
 .columns {
   display: flex;
   margin: 15px 0;
@@ -51,22 +79,23 @@ export default {
 }
 
 .module {
-  border: 1px solid lighten($background-color, 5%);
+  background: rgba(darken($background-color, 5%), 0.8);
+  border: 1px solid darken($background-color, 10%);
   border-radius: 3px;
   cursor: default;
   padding: 15px 10px 10px;
   position: relative;
 
   &::before {
-    background: $background-color;
-    color: lighten($background-color, 20%);
+    border-radius: 3px;
+    color: $primary-color;
     content: attr(data-title);
     font-family: inherit;
     font-weight: 500;
     padding: 0 5px;
     position: absolute;
     left: 10px;
-    top: -10px;
+    top: -12px;
   }
 
   ul {

@@ -204,8 +204,8 @@ form {
 
   input {
     background: lighten($background-color, 5%);
-    border: 2px solid lighten($background-color, 5%);
-    border-radius: 3px;
+    border: 1px solid lighten($background-color, 15%);
+    border-radius: 2px;
     color: $text-color;
     font-family: inherit;
     font-size: 16px;
@@ -245,17 +245,6 @@ form {
     font-weight: 500;
     position: relative;
     top: -20px;
-  }
-
-  button {
-    background: $primary-color;
-    border: none;
-    border-radius: 3px;
-    color: $text-color;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 8px 16px;
   }
 }
 </style>

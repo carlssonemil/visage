@@ -98,7 +98,7 @@
         </div>
       </li>
     </ul>
-    <router-link to="/apply">Apply</router-link>
+    <router-link to="/apply" class="button">Apply</router-link>
   </div>
 </template>
 
@@ -121,6 +121,10 @@ export default {
         margin-left: 2px;
       }
     }
+  }
+
+  .button {
+    margin-top: 10px;
   }
 }
 </style>
