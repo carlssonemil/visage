@@ -1,6 +1,9 @@
 import Vue from 'vue'
+import VueFire from 'vuefire'
 import App from './App.vue'
 import router from './router'
+
+Vue.use(VueFire)
 
 require('reset-css/reset.css')
 
