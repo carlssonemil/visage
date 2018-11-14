@@ -98,6 +98,7 @@
         </div>
       </li>
     </ul>
+    <router-link to="/apply">Apply</router-link>
   </div>
 </template>
 
