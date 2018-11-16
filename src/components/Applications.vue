@@ -51,11 +51,15 @@ export default {
           accepted: true,
           denied: null
         });
+        
+        this.$scrollTop("main");
       } else if (args.denied) {
         db.ref("applications").child(args.key).update({
           accepted: null,
           denied: true
         });
+        
+        this.$scrollTop("main");
       }
     }
   },
