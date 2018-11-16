@@ -129,6 +129,13 @@ export default {
           this.$validator.reset();
 
           this.$scrollTop("main");
+
+          this.$notify({
+            title: 'Tack för din ansökan!',
+            text: 'Vi hör av oss om du blir accepterad.',
+            type: 'success',
+            duration: 10000
+          });
         }
       });
     }
