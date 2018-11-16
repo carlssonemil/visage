@@ -55,11 +55,7 @@
 
         <div class="column">
           <label for="form-spec">Primär spec:</label>
-          <select v-model="application.spec" id="form-spec" name="Spec" v-validate="'required'" :class="{ error: errors.has('Spec') }">
-            <option value="DPS">DPS</option>
-            <option value="Healer">Healer</option>
-            <option value="Tank">Tank</option>
-          </select>
+          <input v-model="application.spec" id="form-spec" name="Spec" v-validate="'required'" :class="{ error: errors.has('Spec') }" type="text">
           <span v-show="errors.has('Spec')" class="validation-error">Det här fältet är obligatoriskt.</span>
         </div>
       </div>
@@ -122,6 +118,8 @@ export default {
     sendApplication() {
       this.$validator.validateAll().then((result) => {
         if (result) {
+          this.application.timestamp = new Date().toUTCString();
+
           applicationsRef.push(this.application);
 
           this.application = {};

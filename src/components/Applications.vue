@@ -1,13 +1,16 @@
 <template>
   <div v-if="this.application" id="applications">
     <ul>
-      <li v-for="application in applications" :key="application['.key']" :class="{ active: (application['.key'] === selected) }" v-on:click="openApplication(application['.key'])">
+      <li v-for="application in sortedApplications" :key="application['.key']" :class="{ active: (application['.key'] === selected), hasStatus: (application.accepted || application.denied) }" v-on:click="openApplication(application['.key'])">
         <div>
-          <p class="name">{{ application.name }}</p>
-          <span class="battletag">{{ application.bnet }}</span>
+          <i v-if="application.accepted" data-eva="checkmark-circle-2" data-eva-fill="#37b24d"></i>
+          <i v-if="application.denied" data-eva="close-square" data-eva-fill="#f03e3e"></i>
+          <div>
+            <p class="name">{{ application.name }}</p>
+            <span class="battletag">{{ application.bnet }}</span>
+          </div>
         </div>
-        <i v-if="application.accepted" data-eva="checkmark-circle-2" data-eva-fill="#37b24d"></i>
-        <i v-if="application.denied" data-eva="close-square" data-eva-fill="#f03e3e"></i>
+        <span class="timestamp">{{ timeSincePost(application.timestamp) }}</span>
       </li>
     </ul>
     <div class="application-view">
@@ -39,6 +42,9 @@ export default {
   computed: {
     application() {
       return !this.key ? this.applications[0] : this.applications.find(a => a['.key'] === this.key);
+    },
+    sortedApplications() {
+      return this.applications.slice().sort((a, b) => b.timestamp.localeCompare(a.timestamp));
     }
   },
   methods: {
@@ -61,6 +67,15 @@ export default {
         
         this.$scrollTop("main");
       }
+    },
+    timeSincePost(timestamp) {
+      let day = 1000 * 60 * 60 * 24;
+      let postDate = new Date(timestamp).getTime();
+      let today = new Date().getTime();
+
+      let dayDifference = Math.round((today - postDate) / day);
+
+      return dayDifference === 0 ? 'Idag' : dayDifference === 1 ? 'Igår' : `${ dayDifference.toString() } dagar sedan`;
     }
   },
   updated() {
@@ -103,6 +118,11 @@ export default {
         background: lighten($background-color, 10%);
       }
 
+      > div {
+        align-items: center;
+        display: flex;
+      }
+
       .name {
         font-weight: 500;
         margin-right: 50px;
@@ -110,7 +130,18 @@ export default {
       }
 
       .battletag {
+        color: $primary-color;
         font-size: 12px;
+      }
+
+      svg {
+        margin-right: 10px;
+      }
+
+      .timestamp {
+        display: block;
+        font-size: 10px;
+        margin-top: 4px;
         opacity: 0.25;
       }
     }
