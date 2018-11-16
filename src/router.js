@@ -25,6 +25,11 @@ export default new Router({
       path: '/apply',
       name: 'apply',
       component: () => import('./views/Apply.vue')
+    },
+    {
+      path: '/admin',
+      name: 'admin',
+      component: () => import('./views/Admin.vue')
     }
   ]
 })
