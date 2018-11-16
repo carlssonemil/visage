@@ -12,7 +12,7 @@
         </div>
       </div>
     </header>
-    <main>
+    <main id="main">
       <div class="container">
         <router-view/>
       </div>
@@ -149,6 +149,12 @@ header {
   }
 }
 
+h2 {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  margin: 0 0 20px !important;
+}
+
 a {
   color: $primary-color;
   text-decoration: none;
@@ -173,6 +179,83 @@ button, .button {
   &:hover {
     background: darken($primary-color, 10%);
     text-decoration: none;
+  }
+
+  + button {
+    margin-left: 8px;
+  }
+
+  &.red {
+    background: $color-red;
+
+    &:hover {
+      background: darken($color-red, 2.5%);
+    }
+  }
+
+  &.green {
+    background: $color-green;
+
+    &:hover {
+      background: darken($color-green, 10%);
+    }
+  }
+}
+
+form {
+  margin-top: 40px;
+  text-align: left;
+  
+  label {
+    display: block;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  input {
+    background: lighten($background-color, 5%);
+    border: 1px solid lighten($background-color, 15%);
+    border-radius: 2px;
+    color: $text-color;
+    font-family: inherit;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 15px;
+    padding: 4px 8px;
+    transition: 0.25s ease;
+    width: 100%;
+
+    &:focus {
+      border-color: $primary-color;
+      outline: none;
+    }
+
+    &.error {
+      border-color: $color-red;
+    }
+  }
+
+  textarea {
+    @extend input;
+
+    min-height: 100px;
+    max-height: 300px;
+    resize: vertical;
+  }
+
+  select {
+    @extend input;
+
+    padding: 3px 0 3px 4px;
+  }
+
+  .validation-error {
+    color: $color-red;
+    font-size: 12px;
+    font-weight: 500;
+    position: relative;
+    top: -20px;
   }
 }
 </style>
