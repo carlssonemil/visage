@@ -17,6 +17,8 @@
         <router-view/>
       </div>
     </main>
+
+    <notifications classes="notification" width="330" />
   </div>
 </template>
 
@@ -146,6 +148,27 @@ header {
       position: relative;
       top: 3px;
     }
+  }
+}
+
+.notification {
+  border-radius: 3px;
+  padding: 15px;
+  margin: #{ $header-height + 10px } 30px;
+  font-size: 14px;
+  color: $text-color;
+  background: lighten($background-color, 15%);
+
+  .notification-title {
+    font-weight: 500;
+  }
+
+  &.error {
+    background: $color-red;
+  }
+
+  &.success {
+    background: $primary-color;
   }
 }
 

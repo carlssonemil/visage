@@ -3,9 +3,11 @@ import VueFire from 'vuefire'
 import VeeValidate from 'vee-validate'
 import App from './App.vue'
 import router from './router'
+import Notifications from 'vue-notification'
 
 Vue.use(VueFire)
 Vue.use(VeeValidate)
+Vue.use(Notifications)
 
 require('reset-css/reset.css')
 
