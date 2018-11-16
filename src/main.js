@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueFire from 'vuefire'
-import VeeValidate from 'vee-validate'
+import sv from 'vee-validate/dist/locale/sv'
+import VeeValidate, { Validator } from 'vee-validate'
 import App from './App.vue'
 import router from './router'
 import Notifications from 'vue-notification'
@@ -8,6 +9,8 @@ import Notifications from 'vue-notification'
 Vue.use(VueFire)
 Vue.use(VeeValidate)
 Vue.use(Notifications)
+
+Validator.localize('sv', sv)
 
 require('reset-css/reset.css')
 
