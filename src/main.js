@@ -11,6 +11,11 @@ require('reset-css/reset.css')
 
 Vue.config.productionTip = false
 
+Vue.prototype.$scrollTop = function(id) {
+  let element = document.getElementById(id);
+  element.scrollTop = 0;
+}
+
 new Vue({
   router,
   render: h => h(App)
