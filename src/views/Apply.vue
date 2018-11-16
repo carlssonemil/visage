@@ -127,6 +127,8 @@ export default {
           this.application = {};
 
           this.$validator.reset();
+
+          this.$scrollTop("main");
         }
       });
     }
@@ -143,12 +145,6 @@ export default {
   max-width: 600px;
   padding: 75px 0;
   text-align: left;
-
-  h2 {
-    font-size: 24px;
-    font-weight: 600;
-    margin: 0 0 20px;
-  }
 
   p {
     margin: 10px 0;
@@ -178,62 +174,6 @@ export default {
     + .column {
       margin-left: 10px;
     }
-  }
-}
-
-form {
-  margin-top: 40px;
-  
-  label {
-    display: block;
-    font-weight: 500;
-    font-size: 14px;
-    margin-bottom: 4px;
-  }
-
-  input {
-    background: lighten($background-color, 5%);
-    border: 1px solid lighten($background-color, 15%);
-    border-radius: 2px;
-    color: $text-color;
-    font-family: inherit;
-    font-size: 16px;
-    display: block;
-    margin-bottom: 15px;
-    padding: 4px 8px;
-    transition: 0.25s ease;
-    width: 100%;
-
-    &:focus {
-      border-color: $primary-color;
-      outline: none;
-    }
-
-    &.error {
-      border-color: $color-red;
-    }
-  }
-
-  textarea {
-    @extend input;
-
-    min-height: 100px;
-    max-height: 300px;
-    resize: vertical;
-  }
-
-  select {
-    @extend input;
-
-    padding: 3px 0 3px 4px;
-  }
-
-  .validation-error {
-    color: $color-red;
-    font-size: 12px;
-    font-weight: 500;
-    position: relative;
-    top: -20px;
   }
 }
 </style>
