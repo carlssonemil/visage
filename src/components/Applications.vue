@@ -90,7 +90,7 @@ export default {
 
 #applications {
   background: $background-color;
-  border: 1px solid darken($background-color, 7.5%);
+  border: 1px solid darken($background-color, 2.5%);
   border-radius: 3px;
   display: flex;
   margin-top: 20px;
@@ -98,7 +98,7 @@ export default {
 
   ul {
     background: lighten($background-color, 2.5%);
-    border-right: 1px solid darken($background-color, 7.5%);
+    border-right: 1px solid darken($background-color, 2.5%);
 
     li {
       align-items: center;
