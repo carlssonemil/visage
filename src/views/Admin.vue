@@ -20,8 +20,10 @@
 </template>
 
 <script>
+// Import components:
 import Applications from '@/components/Applications.vue'
 
+// Import database Object from Firebase init file.
 import { db } from '../firebaseApp'
 
 export default {
@@ -30,17 +32,25 @@ export default {
     Applications
   },
   firebase: {
+    // Declare a database reference to 'users' table.
     users: db.ref("users")
   },
   data() {
     return {
+      // Variable handling if user is logged in or not.
       authenticated: false,
+
+      // Input model.
       input: {},
+
+      // Object holding errors.
       errorList: {}
     }
   },
   mounted() {
+    // Check if user has logged in before by fetching variable from localStorage.
     if (localStorage.authenticated) {
+      // Set variable to value of localStorage value.
       this.authenticated = JSON.parse(localStorage.authenticated);
     }
   },

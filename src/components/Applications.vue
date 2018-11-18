@@ -20,9 +20,13 @@
 </template>
 
 <script>
+// Import components:
 import Application from '@/components/Application.vue'
+
+// Import eva-icons
 import * as eva from 'eva-icons'
 
+// Import database Object from Firebase init file.
 import { db } from '../firebaseApp'
 
 export default {
@@ -31,6 +35,7 @@ export default {
     Application
   },
   firebase: {
+    // Declare a database reference to 'users' table.
     applications: db.ref("applications")
   },
   data() {

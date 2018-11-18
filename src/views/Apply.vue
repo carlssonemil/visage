@@ -99,40 +99,54 @@
 </template>
 
 <script>
+// Import database Object from Firebase init file.
 import { db } from '../firebaseApp'
 
+// Declare a database reference to 'applications' table.
 let applicationsRef = db.ref("applications");
 
 export default {
   name: 'apply',
   data () {
     return {
+      // Application model.
       application: {}
     }
   },
   methods: {
     sendApplication() {
+      // Validate input.
       this.$validator.validateAll().then((result) => {
+        // If result from validation is true, continue...
         if (result) {
+          // Set 'timestamp' to current time.
           this.application.timestamp = new Date().toUTCString();
 
+          // Push application to database.
           applicationsRef.push(this.application);
 
+          // Empty 'application' model.
           this.application = {};
 
+          // Reset validation.
           this.$validator.reset();
 
+          // Scroll to top of page.
           this.$scrollTop("main");
 
+          // Show notification that application was sent.
           this.$notify({
             title: 'Tack för din ansökan!',
             text: 'Vi hör av oss om du blir accepterad.',
             type: 'success',
             duration: 10000
           });
+        // ... If not...
         } else {
+          // Scroll to top of page.
           this.$scrollTop("main");
 
+          // Show notification that there are errors in the application.
           this.$notify({
             title: 'Fel i ansökan',
             text: 'Åtgärda felen och försök skicka igen.',

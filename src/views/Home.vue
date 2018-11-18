@@ -17,10 +17,12 @@
 </template>
 
 <script>
+// Import components:
 import Progress from '@/components/Progress.vue'
 import Schedule from '@/components/Schedule.vue'
 import Recruitment from '@/components/Recruitment.vue'
 
+// Import database Object from Firebase init file.
 import { db } from '../firebaseApp'
 
 export default {
@@ -31,6 +33,7 @@ export default {
     Recruitment
   },
   firebase: {
+    // Declare a database reference to 'content' table.
     content: {
       source: db.ref("content"),
       asObject: true
