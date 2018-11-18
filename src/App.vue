@@ -151,10 +151,14 @@ header {
   }
 }
 
+.notifications {
+  top: #{ $header-height } !important;
+}
+
 .notification {
   border-radius: 3px;
   padding: 15px;
-  margin: #{ $header-height + 10px } 30px;
+  margin: 15px 30px 0;
   font-size: 14px;
   color: $text-color;
   background: lighten($background-color, 15%);
