@@ -130,6 +130,15 @@ export default {
             type: 'success',
             duration: 10000
           });
+        } else {
+          this.$scrollTop("main");
+
+          this.$notify({
+            title: 'Fel i ansökan',
+            text: 'Åtgärda felen och försök skicka igen.',
+            type: 'error',
+            duration: 10000
+          });
         }
       });
     }
