@@ -64,10 +64,6 @@
       <textarea v-model="application.attendence" id="form-attendence" name="Attendence" v-validate="'required'" :class="{ error: errors.has('Attendence') }"></textarea>
       <span v-show="errors.has('Attendence')" class="validation-error">{{ errors.first("Attendence") }}</span>
 
-      <label for="form-current-guild">Nuvarande och tidigare guild, och varför du lämnat/vill lämna dessa?</label>
-      <textarea v-model="application.currentGuild" id="form-current-guild" name="Nuvarande och tidigare guild" v-validate="'required'" :class="{ error: errors.has('Nuvarande och tidigare guild') }"></textarea>
-      <span v-show="errors.has('Nuvarande och tidigare guild')" class="validation-error">{{ errors.first("Nuvarande och tidigare guild") }}</span>
-
       <label for="form-previous-experience">Tidigare erfarenhet och nuvarande?</label>
       <textarea v-model="application.previousExperience" id="form-previous-experience" name="Tidigare erfarenhet" v-validate="'required'" :class="{ error: errors.has('Tidigare erfarenhet') }"></textarea>
       <span v-show="errors.has('Tidigare erfarenhet')" class="validation-error">{{ errors.first("Tidigare erfarenhet") }}</span>

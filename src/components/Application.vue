@@ -2,13 +2,13 @@
   <div id="application" :class="application.accepted ? 'accepted' : application.denied ? 'denied' : 0">
     <p v-if="application.accepted" class="status accepted">Den här ansökan har accepterats.</p>
     <p v-if="application.denied" class="status denied">Den här ansökan har nekats.</p>
-
+    
     <label>Namn:</label>
     <p>{{ application.name }}</p>
-    
+
     <label>Ålder:</label>
     <p>{{ application.age }}</p>
-    
+
     <label>Bnet-tag:</label>
     <p>{{ application.bnet }}</p>
     
@@ -20,9 +20,6 @@
     
     <label>Vi raidar 3 dagar i veckan (ons/tors/sön, 20:00 - 23:00) kan du hålla minst en 80-90% attendence? Om nej, varför?</label>
     <p>{{ application.attendence }}</p>
-
-    <label>Nuvarande och tidigare guild, och varför du lämnat/vill lämna dessa?</label>
-    <p>{{ application.currentGuild }}</p>
 
     <label>Tidigare erfarenhet och nuvarande?</label>
     <p>{{ application.previousExperience }}</p>
@@ -86,10 +83,6 @@ export default {
 
   p {
     margin-bottom: 15px;
-    
-    &:last-of-type {
-      margin-bottom: 45px;
-    }
 
     &.status {
       align-items: center;
@@ -110,6 +103,10 @@ export default {
         color: $text-color;
       }
     }
+  }
+
+  button {
+    margin-top: 30px;
   }
 }
 </style>
