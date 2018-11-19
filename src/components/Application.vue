@@ -33,7 +33,8 @@
     <label>Vi är en guild med mer än 20 medlemmar så ibland kommer man få sitta ute, har du något problem med det?</label>
     <p>{{ application.problemWithBench }}</p>
 
-    <label>Länk till en printscreen av ditt UI i combat:</label>
+    <label>Printscreen av ditt UI i combat:</label>
+    <img :src="application.uiPrintscreen" alt="UI Printscreen">
     <p><a :href="application.uiPrintscreen">{{ application.uiPrintscreen }}</a></p>
 
     <label>Warcraftlogs:</label>
@@ -103,6 +104,12 @@ export default {
         color: $text-color;
       }
     }
+  }
+
+  img {
+    display: block;
+    margin: 5px 0;
+    width: 100%;
   }
 
   button {
