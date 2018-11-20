@@ -98,7 +98,7 @@ export default {
   border: 1px solid darken($background-color, 2.5%);
   border-radius: 3px;
   display: flex;
-  margin-top: 20px;
+  margin: 20px 0 30px;
   overflow: hidden;
 
   ul {
