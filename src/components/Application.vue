@@ -109,7 +109,34 @@ export default {
   img {
     display: block;
     margin: 5px 0;
+    min-height: 60px;
+    position: relative;
     width: 100%;
+
+    &::before {
+      background: $background-color;
+      border: 1px dashed lighten($background-color, 5%);
+      border-radius: 3px;
+      content: '';
+      display: block;
+      height: 100%;
+      left: -1px;
+      position: absolute;
+      top: -1px;
+      width: 100%;
+    }
+
+    &::after {
+      color: lighten($background-color, 10%);
+      content: '😢Broken Image';
+      display: block;
+      font-size: 16px;
+      left: 0;
+      position: absolute;
+      text-align: center;
+      top: 20px;
+      width: 100%;
+    }
   }
 
   button {
