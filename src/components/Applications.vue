@@ -10,7 +10,7 @@
             <span class="battletag">{{ application.bnet }}</span>
           </div>
         </div>
-        <span class="timestamp">{{ timeSincePost(application.timestamp) }}</span>
+        <span class="timestamp" :title="application.timestamp">{{ timeSincePost(application.timestamp) }}</span>
       </li>
     </ul>
     <div class="application-view">
@@ -148,6 +148,7 @@ export default {
         font-size: 10px;
         margin-top: 4px;
         opacity: 0.25;
+        white-space: nowrap;
       }
     }
   }
