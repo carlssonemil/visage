@@ -3,7 +3,7 @@
     <div id="welcome">
       <h1>&lt;Visage&gt;</h1>
       <span class="server">Tarren Mill EU – Horde</span>
-      <p>{{ content.description }}</p>
+      <p class="description">{{ content.description }}</p>
     </div>
 
     <div class="columns">
@@ -64,10 +64,10 @@ export default {
     opacity: 0.5;
   }
 
-  p {
+  p.description {
     font-size: 18px;
     margin: 30px 0 60px;
-    text-align: left;
+    text-align: center;
   }
 }
 
