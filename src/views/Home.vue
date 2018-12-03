@@ -75,6 +75,10 @@ export default {
   display: flex;
   margin: 15px 0;
 
+  @media screen and (max-width: $mobile) {
+    display: block;
+  }
+
   > div {
     display: flex;
     flex-direction: column;

@@ -95,6 +95,11 @@ export default {
   justify-content: space-between;
   margin-left: 15px;
 
+  @media screen and (max-width: $mobile) {
+    margin-left: 0;
+    margin-top: 15px;
+  }
+
   div.specs {
     img {
 
