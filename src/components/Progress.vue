@@ -35,10 +35,14 @@ export default {
 #progress {
   ul {
     li {
-
       &:not(:first-child) {
         font-weight: 500 !important;
         opacity: 0.5;
+      }
+
+      span.difficulty {
+        text-align: center;
+        width: 15px;
       }
     }
   }
