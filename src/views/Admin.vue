@@ -15,6 +15,9 @@
     <div v-if="this.authenticated" id="authenticated">
       <h2>Admin – Ansökningar</h2>
       <Applications />
+      
+      <h2>Admin – Redigera innehåll</h2>
+      <EditContent />
     </div>
   </div>
 </template>
@@ -22,6 +25,7 @@
 <script>
 // Import components:
 import Applications from '@/components/Applications.vue'
+import EditContent from '@/components/EditContent.vue'
 
 // Import database Object from Firebase init file.
 import { db } from '../firebaseApp'
@@ -29,7 +33,8 @@ import { db } from '../firebaseApp'
 export default {
   name: 'admin',
   components: {
-    Applications
+    Applications,
+    EditContent
   },
   firebase: {
     // Declare a database reference to 'users' table.
