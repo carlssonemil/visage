@@ -58,6 +58,18 @@
         </div>
       </li>
     </ul>
+
+    <div class="priority-info">
+      <span class="priority" title="Low Priority"></span>
+      <span>Low Priority</span>
+
+      <span class="priority" title="Medium Priority"></span>
+      <span>Medium Priority</span>
+
+      <span class="priority" title="High Priority"></span>
+      <span>High Priority</span>
+    </div>
+
     <router-link to="/apply" class="button">Apply</router-link>
   </div>
 </template>
@@ -87,28 +99,44 @@ export default {
         margin-left: 2px;
       }
     }
+  }
 
-    span.priority {
-      $priority-size: 10px;
+  span.priority {
+    $priority-size: 10px;
 
-      background: gray;
-      border-radius: $priority-size;
-      display: inline-block;
-      height: $priority-size;
-      margin-left: 10px;
-      width: $priority-size;
+    background: gray;
+    border-radius: $priority-size;
+    display: inline-block;
+    height: $priority-size;
+    margin-left: 10px;
+    width: $priority-size;
 
-      &[title*="Low"] {
-        background: $color-green;
-      }
+    &[title*="Low"] {
+      background: $color-green;
+    }
 
-      &[title*="Medium"] {
-        background: $color-yellow;
-      }
+    &[title*="Medium"] {
+      background: $color-yellow;
+    }
 
-      &[title*="High"] {
-        background: $color-red;
-      }
+    &[title*="High"] {
+      background: $color-red;
+    }
+  }
+
+  .priority-info {
+    align-items: center;
+    color: lighten($background-color, 15%);
+    display: flex;
+    font-weight: 700;
+    font-size: 10px;
+    justify-content: center;
+    margin: 15px 0;
+
+    span:nth-child(even) {
+      margin: 0 10px 0 5px;
+      position: relative;
+      white-space: nowrap;
     }
   }
 
