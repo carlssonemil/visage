@@ -58,6 +58,10 @@ export default {
   border: 1px solid darken($background-color, 2.5%);
   border-radius: 3px;
   padding: 20px;
+
+  form {
+    margin: 0;
+  }
 }
 
 .schedule, .progress {
