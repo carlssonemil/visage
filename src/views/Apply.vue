@@ -184,20 +184,4 @@ export default {
   }
 
 }
-
-.row {
-  display: flex;
-
-  .column {
-    flex: 1;
-
-    &.auto {
-      flex: 0 auto;
-    }
-
-    + .column {
-      margin-left: 10px;
-    }
-  }
-}
 </style>

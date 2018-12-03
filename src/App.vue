@@ -69,6 +69,22 @@ body {
   z-index: 10;
 }
 
+.row {
+  display: flex;
+
+  .column {
+    flex: 1;
+
+    &.auto {
+      flex: 0 0 auto;
+    }
+
+    + .column {
+      margin-left: 10px;
+    }
+  }
+}
+
 main {
   height: calc(100vh - #{ $header-height });
   overflow-y: auto;
@@ -250,7 +266,7 @@ form {
     display: block;
     margin-bottom: 15px;
     padding: 4px 8px;
-    transition: 0.25s ease;
+    transition: border-color 0.25s ease;
     width: 100%;
 
     &:focus {
