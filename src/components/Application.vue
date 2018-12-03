@@ -34,7 +34,7 @@
     <p>{{ application.problemWithBench }}</p>
 
     <label>Printscreen av ditt UI i combat:</label>
-    <img :src="application.uiPrintscreen" alt="UI Printscreen">
+    <img v-if="['.jpg', '.png'].some(ex => application.uiPrintscreen.includes(ex))" :src="application.uiPrintscreen" alt="UI Printscreen">
     <p><a :href="application.uiPrintscreen">{{ application.uiPrintscreen }}</a></p>
 
     <label>Warcraftlogs:</label>
@@ -128,7 +128,7 @@ export default {
 
     &::after {
       color: lighten($background-color, 10%);
-      content: '😢Broken Image';
+      content: '😢Broken Image or Incorrect URL Format';
       display: block;
       font-size: 16px;
       left: 0;
