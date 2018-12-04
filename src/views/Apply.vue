@@ -102,6 +102,9 @@
 // Import database Object from Firebase init file.
 import { db } from '../firebaseApp'
 
+// Require axios package.
+const axios = require('axios');
+
 // Declare a database reference to 'applications' table.
 let applicationsRef = db.ref("applications");
 
@@ -124,6 +127,9 @@ export default {
 
           // Push application to database.
           applicationsRef.push(this.application);
+
+          // Send a discord notification that a new application has been submitted.
+          sendDiscordNotification(this.application);
 
           // Empty 'application' model.
           this.application = {};
@@ -157,6 +163,44 @@ export default {
       });
     }
   }
+}
+
+// Send a message to Discord using webhooks.
+function sendDiscordNotification(application) {
+  // Define the JSON object to send to webhook.
+  // See: https://birdie0.github.io/discord-webhooks-guide/json.html
+  const json = {
+    "embeds": [
+      {
+        "author": {
+          "name": "⚔️ Visage",
+          "url": "https://visage-wow.firebaseapp.com"
+        },
+        "description": "A new application has been submitted. [View all applications](https://visage-wow.firebaseapp.com/admin).",
+        "color": 7649302,
+        "fields": [
+          {
+            "name": "Name",
+            "value": application.name,
+            "inline": true
+          },
+          {
+            "name": "Bnet",
+            "value": application.bnet,
+            "inline": true
+          },
+          {
+            "name": "Class",
+            "value": application.class,
+            "inline": true
+          }
+        ]
+      }
+    ]
+  }
+
+  // Post to webhook URL using axios.
+  return axios.post(process.env.VUE_APP_DISCORD_WEBHOOK, json).catch(error => console.log(error));
 }
 </script>
 
