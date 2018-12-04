@@ -30,7 +30,7 @@
       <div class="row">
         <div class="column auto">
           <label for="form-bnet">Bnet-tag:</label>
-          <input v-model="application.bnet" id="form-bnet" name="Bnet-tag" type="text" placeholder="Ex: Dragonslayer#1337" v-validate="{ required: true, regex: /^[a-zA-Z][a-zA-Z0-9.,$;]{2,11}#[0-9]{4,5}$/g }" :class="{ error: errors.has('Bnet-tag') }">
+          <input v-model="application.bnet" id="form-bnet" name="Bnet-tag" type="text" placeholder="Ex: Dragonslayer#1337" v-validate="'required'" :class="{ error: errors.has('Bnet-tag') }">
           <span v-show="errors.has('Bnet-tag')" class="validation-error">{{ errors.first("Bnet-tag") }}</span>
         </div>
 
