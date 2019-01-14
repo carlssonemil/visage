@@ -46,10 +46,10 @@ export default {
   },
   computed: {
     application() {
-      return !this.key ? this.applications.find(a => !a.hidden) : this.applications.find(a => a['.key'] === this.key);
+      return !this.key ? this.applications.slice(-1).find(a => !a.hidden) : this.applications.find(a => a['.key'] === this.key);
     },
     sortedApplications() {
-      return this.applications.slice().filter(a => !a.hidden).sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+      return this.applications.slice().filter(a => !a.hidden).reverse();
     }
   },
   methods: {
