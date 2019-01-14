@@ -50,6 +50,8 @@
       <button class="green" @click="$emit('changeStatus', { 'key': application['.key'], 'accepted': true})">Acceptera</button>
       <button class="red" @click="$emit('changeStatus', { 'key': application['.key'], 'denied': true})">Neka</button>
     </div>
+
+    <button v-if="application.accepted || application.denied" class="red" @click="$emit('hideApplication', application['.key'])">Dölj ansökan</button>
   </div>
 </template>
 

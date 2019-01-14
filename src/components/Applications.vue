@@ -14,7 +14,7 @@
       </li>
     </ul>
     <div class="application-view">
-      <Application v-if="this.application" :application="this.application" v-on:changeStatus="changeStatus" />
+      <Application v-if="this.application" :application="this.application" v-on:changeStatus="changeStatus" v-on:hideApplication="hideApplication" />
     </div>
   </div>
 </template>
@@ -46,10 +46,10 @@ export default {
   },
   computed: {
     application() {
-      return !this.key ? this.applications[0] : this.applications.find(a => a['.key'] === this.key);
+      return !this.key ? this.applications.find(a => !a.hidden) : this.applications.find(a => a['.key'] === this.key);
     },
     sortedApplications() {
-      return this.applications.slice().sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+      return this.applications.slice().filter(a => !a.hidden).sort((a, b) => b.timestamp.localeCompare(a.timestamp));
     }
   },
   methods: {
@@ -72,6 +72,11 @@ export default {
         
         this.$scrollTop("main");
       }
+    },
+    hideApplication(key) {
+      db.ref("applications").child(key).update({
+        hidden: true
+      });
     },
     timeSincePost(timestamp) {
       let day = 1000 * 60 * 60 * 24;
