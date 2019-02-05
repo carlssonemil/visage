@@ -1,3 +1,4 @@
+import 'animate.css/animate.min.css'
 import Vue from 'vue'
 import VueFire from 'vuefire'
 import sv from 'vee-validate/dist/locale/sv'
