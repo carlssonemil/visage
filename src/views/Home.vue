@@ -1,24 +1,24 @@
 <template>
   <div id="home">
     <div id="welcome">
-      <h1>&lt;Visage&gt;</h1>
-      <span class="server">Tarren Mill EU – Horde</span>
-      <p class="description">{{ content.description }}</p>
+      <h1 class="animated fadeIn">&lt;Visage&gt;</h1>
+      <span class="server animated fadeIn">Tarren Mill EU – Horde</span>
+      <p v-if="content.description" class="description animated fadeIn">{{ content.description }}</p>
     </div>
 
     <div class="columns">
       <div>
-        <Schedule v-if="content.schedule" :schedule="content.schedule" />
-        <Progress v-if="content.progress" :progress="content.progress" />
+        <Schedule v-if="content.schedule" :schedule="content.schedule" class="animated fadeIn" />
+        <Progress v-if="content.progress" :progress="content.progress" class="animated fadeIn" />
       </div>
-      <Recruitment v-if="content.recruitment" :recruitment="content.recruitment" />
+      <Recruitment v-if="content.recruitment" :recruitment="content.recruitment" class="animated fadeIn" />
     </div>
 
     <section>
-      <Videos v-if="videos" :videos="videos" />
+      <Videos v-if="videos" :videos="videos" class="animated fadeIn delay-1s" />
     </section>
 
-    <Streams />
+    <Streams class="animated fadeIn delay-1s" />
   </div>
 </template>
 
