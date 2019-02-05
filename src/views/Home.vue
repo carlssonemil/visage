@@ -13,6 +13,10 @@
       </div>
       <Recruitment v-if="content.recruitment" :recruitment="content.recruitment" />
     </div>
+
+    <section>
+      <Videos :videos="videos" />
+    </section>
   </div>
 </template>
 
@@ -21,6 +25,7 @@
 import Progress from '@/components/Progress.vue'
 import Schedule from '@/components/Schedule.vue'
 import Recruitment from '@/components/Recruitment.vue'
+import Videos from '@/components/Videos.vue'
 
 // Import database Object from Firebase init file.
 import { db } from '../firebaseApp'
@@ -30,12 +35,17 @@ export default {
   components: {
     Progress,
     Schedule,
-    Recruitment
+    Recruitment,
+    Videos
   },
   firebase: {
     // Declare a database reference to 'content' table.
     content: {
       source: db.ref("content"),
+      asObject: true
+    },
+    videos: {
+      source: db.ref("videos"),
       asObject: true
     }
   }
