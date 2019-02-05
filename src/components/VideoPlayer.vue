@@ -37,6 +37,7 @@ export default {
   position: fixed;
   top: 0;
   width: 100vw;
+  z-index: 9999;
 
   .backdrop {
     background: rgba(0, 0, 0, 0.8);
