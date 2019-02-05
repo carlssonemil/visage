@@ -9,27 +9,10 @@
           </div>
         </li>-->
 
-
-        <li>
-          <span class="class">Druid</span>
-          <div class="specs">
-            <img src="@/assets/druid_balance.png" alt="Balance" title="Balance">
-            <span class="priority" title="Medium Priority"></span>
-          </div>
-        </li>
-        <li>
-          <span class="class">Mage</span>
-          <div class="specs">
-            <img src="@/assets/mage_arcane.png" alt="Arcane" title="Arcane">
-            <img src="@/assets/mage_fire.png" alt="Fire" title="Fire">
-            <img src="@/assets/mage_frost.png" alt="Frost" title="Frost">
-            <span class="priority" title="Medium Priority"></span>
-          </div>
-        </li>
         <li>
           <span class="class">Priest</span>
           <div class="specs">
-            <img src="@/assets/priest_discipline.png" alt="Discipline" title="Discipline">
+            <img src="@/assets/priest_shadow.png" alt="Discipline" title="Discipline">
             <span class="priority" title="High Priority"></span>
           </div>
         </li>
